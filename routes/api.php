@@ -25,6 +25,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::controller(ComputerCourseController::class)->prefix('computer-course')->group(function(){
     Route::get('list/{id}','list')->name('list');
     Route::post('create','create')->name('create');
+    Route::post('subject','addSubject')->name('subject');
     Route::post('update','update')->name('update');
     Route::post('delete/{id}','delete')->name('delete');
     Route::get('show/{id}','show')->name('show');
@@ -33,14 +34,7 @@ Route::controller(ComputerCourseController::class)->prefix('computer-course')->g
 Route::controller(NonComputerCourseController::class)->prefix('noncomputer-course')->group(function(){
     Route::get('list/{id}','list')->name('list');
     Route::post('create','create')->name('create');
-    Route::post('update','update')->name('update');
-    Route::post('delete/{id}','delete')->name('delete');
-    Route::get('show/{id}','show')->name('show');
-});
-
-Route::controller(SubjectController::class)->prefix('subject')->group(function(){
-    Route::get('list/{id}','list')->name('list');
-    Route::post('create','create')->name('create');
+    Route::post('subject','addSubject')->name('subject');
     Route::post('update','update')->name('update');
     Route::post('delete/{id}','delete')->name('delete');
     Route::get('show/{id}','show')->name('show');
