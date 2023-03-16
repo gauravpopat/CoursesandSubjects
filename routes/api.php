@@ -27,8 +27,7 @@ Route::controller(ComputerCourseController::class)->prefix('computer-course')->g
     Route::post('create','create')->name('create');
     Route::post('subject','addSubject')->name('subject');
     Route::post('update','update')->name('update');
-    Route::post('delete/{id}','delete')->name('delete');
-    Route::get('show/{id}','show')->name('show');
+    Route::get('delete/{id}','delete')->name('delete');
 });
 
 Route::controller(NonComputerCourseController::class)->prefix('noncomputer-course')->group(function(){
@@ -36,9 +35,15 @@ Route::controller(NonComputerCourseController::class)->prefix('noncomputer-cours
     Route::post('create','create')->name('create');
     Route::post('subject','addSubject')->name('subject');
     Route::post('update','update')->name('update');
-    Route::post('delete/{id}','delete')->name('delete');
-    Route::get('show/{id}','show')->name('show');
+    Route::get('delete/{id}','delete')->name('delete');
 });
+
+Route::controller(SubjectController::class)->prefix('subject')->group(function(){
+    Route::get('show/{id}','show')->name('list');
+    Route::post('update','update')->name('update');
+    Route::get('delete/{id}','delete')->name('delete');
+});
+
 
 
 

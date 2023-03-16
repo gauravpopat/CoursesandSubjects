@@ -9,6 +9,10 @@ class Subject extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'subject_name'
+    ];
+    
     public function computerCourses()
     {
         return $this->morphedByMany(ComputerCourse::class,'subjectable');
