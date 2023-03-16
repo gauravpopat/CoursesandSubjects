@@ -16,7 +16,7 @@ class SubjectController extends Controller
     public function show($id)
     {
         $subject = Subject::find($id);
-        return $this->returnResponse(true,'Subject',$subject);
+        return $this->returnResponse(true, 'Subject', $subject);
     }
 
     public function update(Request $request)
@@ -40,17 +40,14 @@ class SubjectController extends Controller
 
     public function delete($id)
     {
-        $subject = Subject::where('id',$id)->first();
+        $subject = Subject::where('id', $id)->first();
 
-        if($subject){
+        if ($subject) {
             $subject->nonComputerCourses()->detach();
             $subject->delete();
-            return $this->returnResponse(true,'Subject Deleted Successfully');
+            return $this->returnResponse(true, 'Subject Deleted Successfully');
+        } else {
+            return $this->returnResponse(false, 'Subject Not Found');
         }
-        else{
-            return $this->returnResponse(false,'Subject Not Found');
-        }       
     }
-
-    
 }
